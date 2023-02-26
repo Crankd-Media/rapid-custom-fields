@@ -13,7 +13,7 @@
   "require": {},
   "autoload": {
     "psr-4": {
-      "Crankd\\LaravelPages\\": "src/"
+      "Crankd\\RapidCustomFields\\": "src/"
     }
   },
   "extra": {
