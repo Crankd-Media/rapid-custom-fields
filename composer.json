@@ -1,0 +1,26 @@
+{
+  "name": "crankd/rapid-custom-fields",
+  "description": "",
+  "license": "MIT",
+  "version": "1.0.0",
+  "authors": [
+    {
+      "name": "Nathaniel",
+      "email": "nat@crankd.nz"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "Crankd\\LaravelPages\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Crankd\\RapidCustomFields\\RapidCustomFieldsProvider"
+      ]
+    }
+  }
+}
