@@ -1,3 +1,5 @@
+import axios from "axios";
+
 import Swal from "sweetalert2";
 
 import collect from "collect.js";

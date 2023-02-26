@@ -1,0 +1,12 @@
+{
+  "resources/css/rapid-custom-fields.css": {
+    "file": "assets/rapid-custom-fields-4ed993c7.js",
+    "isEntry": true,
+    "src": "resources/css/rapid-custom-fields.css"
+  },
+  "resources/js/rapid-custom-fields.js": {
+    "file": "assets/rapid-custom-fields-48b58bb7.js",
+    "isEntry": true,
+    "src": "resources/js/rapid-custom-fields.js"
+  }
+}
