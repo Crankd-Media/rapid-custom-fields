@@ -24,7 +24,6 @@ export default (initFields = null, initOldFields = null, initRoute = '') => ({
             console.log("object");
             console.log(this.fields);
         }
-
         
         axios
             .patch(this.route, {

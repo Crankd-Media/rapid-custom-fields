@@ -1,22 +1,37 @@
-// import slugify from "slugify";
+import { setBasePath } from "@shoelace-style/shoelace/dist/utilities/base-path.js";
+setBasePath("/");
 
-// import axios from "axios";
+import "@shoelace-style/shoelace/dist/components/alert/alert.js";
+import "@shoelace-style/shoelace/dist/components/button/button.js";
+import "@shoelace-style/shoelace/dist/components/icon/icon.js";
+import "@shoelace-style/shoelace/dist/components/dialog/dialog.js";
+// tooltip
+import "@shoelace-style/shoelace/dist/components/tooltip/tooltip.js";
+// import all components
+// import "@shoelace-style/shoelace/dist/components/all.js";
 
-// import Swal from "sweetalert2";
+import "@shoelace-style/shoelace/dist/components/input/input.js";
+import "@shoelace-style/shoelace/dist/components/drawer/drawer.js";
 
-// import collect from "collect.js";
+import "@shoelace-style/shoelace/dist/components/card/card.js";
 
-// window.Swal = Swal;
+import axios from "axios";
 
-// window.SweetalertOptions = {
-//   confirmButtonText: "Yes, delete it!",
-//   confirmButtonColor: "#E33430",
-//   cancelButtonColor: "#6c757d",
-//   confirmButtonClass: "btn btn-danger",
-//   cancelButtonClass: "btn btn-lighter",
-// };
+import Swal from "sweetalert2";
 
-// import Alpine from "alpinejs";
+import collect from "collect.js";
+
+window.Swal = Swal;
+
+window.SweetalertOptions = {
+  confirmButtonText: "Yes, delete it!",
+  confirmButtonColor: "#E33430",
+  cancelButtonColor: "#6c757d",
+  confirmButtonClass: "btn btn-danger",
+  cancelButtonClass: "btn btn-lighter",
+};
+
+import Alpine from "alpinejs";
 
 // Render Fields
 import RenderCustomFields from "./alpine-components/render-custom-fields.ts";
@@ -52,10 +67,12 @@ Alpine.directive(
     let setInputValue = evaluateLater(expression);
     effect(() => {
       setInputValue((string) => {
-        el.value = slugify(string, {
-          lower: true,
-          replacement: "_",
-        });
+        el.value = string.toLowerCase().replace(/\s+/g, "_");
+
+        // el.value = slugify(string, {
+        //     lower: true,
+        //     replacement: "_",
+        // });
       });
     });
   }
