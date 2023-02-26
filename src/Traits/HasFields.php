@@ -11,4 +11,5 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 
 trait HasFields
 {
+    // test
 }
