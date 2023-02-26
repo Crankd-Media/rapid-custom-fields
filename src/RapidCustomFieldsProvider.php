@@ -15,7 +15,7 @@ class RapidCustomFieldsProvider extends ServiceProvider
 
     private const PATH_VIEWS = __DIR__ . '/../resources/views';
 
-    private const PATH_ASSETS = __DIR__ . '/../public/js';
+    private const PATH_ASSETS = __DIR__ . '/public/js';
 
 
     /**
