@@ -1,62 +1,64 @@
-import axios from "axios";
+console.log("test");
 
-import Swal from "sweetalert2";
+// import axios from "axios";
 
-import collect from "collect.js";
+// import Swal from "sweetalert2";
 
-window.Swal = Swal;
+// import collect from "collect.js";
 
-window.SweetalertOptions = {
-  confirmButtonText: "Yes, delete it!",
-  confirmButtonColor: "#E33430",
-  cancelButtonColor: "#6c757d",
-  confirmButtonClass: "btn btn-danger",
-  cancelButtonClass: "btn btn-lighter",
-};
+// window.Swal = Swal;
 
-import Alpine from "alpinejs";
+// window.SweetalertOptions = {
+//   confirmButtonText: "Yes, delete it!",
+//   confirmButtonColor: "#E33430",
+//   cancelButtonColor: "#6c757d",
+//   confirmButtonClass: "btn btn-danger",
+//   cancelButtonClass: "btn btn-lighter",
+// };
 
-// Render Fields
-import RenderCustomFields from "./alpine-components/render-custom-fields";
-Alpine.data("RenderCustomFields", RenderCustomFields);
+// import Alpine from "alpinejs";
 
-import EditFieldSettings from "./alpine-components/edit-field-settings";
-Alpine.data("EditFieldSettings", EditFieldSettings);
+// // Render Fields
+// import RenderCustomFields from "./alpine-components/render-custom-fields";
+// Alpine.data("RenderCustomFields", RenderCustomFields);
 
-import RenderFieldValues from "./alpine-components/render-field-values";
-Alpine.data("RenderFieldValues", RenderFieldValues);
+// import EditFieldSettings from "./alpine-components/edit-field-settings";
+// Alpine.data("EditFieldSettings", EditFieldSettings);
 
-// Field-input
-import FieldInputRepeater from "./alpine-components/field-input/repeater";
-Alpine.data("FieldInputRepeater", FieldInputRepeater);
+// import RenderFieldValues from "./alpine-components/render-field-values";
+// Alpine.data("RenderFieldValues", RenderFieldValues);
 
-import FieldInputImage from "./alpine-components/field-input/image";
-Alpine.data("FieldInputImage", FieldInputImage);
+// // Field-input
+// import FieldInputRepeater from "./alpine-components/field-input/repeater";
+// Alpine.data("FieldInputRepeater", FieldInputRepeater);
 
-import FieldInputLink from "./alpine-components/field-input/link";
-Alpine.data("FieldInputLink", FieldInputLink);
+// import FieldInputImage from "./alpine-components/field-input/image";
+// Alpine.data("FieldInputImage", FieldInputImage);
 
-// render-repeater-fields
-import EditRepeaterItem from "./alpine-components/edit-repeater-item";
-Alpine.data("EditRepeaterItem", EditRepeaterItem);
+// import FieldInputLink from "./alpine-components/field-input/link";
+// Alpine.data("FieldInputLink", FieldInputLink);
 
-Alpine.magic("clipboard", () => {
-  return (subject) => navigator.clipboard.writeText(subject);
-});
+// // render-repeater-fields
+// import EditRepeaterItem from "./alpine-components/edit-repeater-item";
+// Alpine.data("EditRepeaterItem", EditRepeaterItem);
 
-import slugify from "slugify";
+// Alpine.magic("clipboard", () => {
+//   return (subject) => navigator.clipboard.writeText(subject);
+// });
 
-Alpine.directive(
-  "rapid-slug",
-  (el, { expression }, { evaluateLater, effect }) => {
-    let setInputValue = evaluateLater(expression);
-    effect(() => {
-      setInputValue((string) => {
-        el.value = slugify(string, {
-          lower: true,
-          replacement: "_",
-        });
-      });
-    });
-  }
-);
+// import slugify from "slugify";
+
+// Alpine.directive(
+//   "rapid-slug",
+//   (el, { expression }, { evaluateLater, effect }) => {
+//     let setInputValue = evaluateLater(expression);
+//     effect(() => {
+//       setInputValue((string) => {
+//         el.value = slugify(string, {
+//           lower: true,
+//           replacement: "_",
+//         });
+//       });
+//     });
+//   }
+// );
