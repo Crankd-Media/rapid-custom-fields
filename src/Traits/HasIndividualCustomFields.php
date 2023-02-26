@@ -29,11 +29,8 @@ trait HasIndividualCustomFields
                     $field->value = $values->{$field->key}->value;
                 }
             }
-
-
             $fieldValues[$field->key] = $field;
         }
-
 
         return $fieldValues;
     }
