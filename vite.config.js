@@ -8,4 +8,7 @@ export default defineConfig({
       "resources/js/rapid-custom-fields.js",
     ]),
   ],
+  build: {
+    outDir: "public/",
+  },
 });
