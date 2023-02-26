@@ -1,3 +1,24 @@
+// import slugify from "slugify";
+
+// import axios from "axios";
+
+// import Swal from "sweetalert2";
+
+// import collect from "collect.js";
+
+// window.Swal = Swal;
+
+// window.SweetalertOptions = {
+//   confirmButtonText: "Yes, delete it!",
+//   confirmButtonColor: "#E33430",
+//   cancelButtonColor: "#6c757d",
+//   confirmButtonClass: "btn btn-danger",
+//   cancelButtonClass: "btn btn-lighter",
+// };
+
+// import Alpine from "alpinejs";
+
+// Render Fields
 import RenderCustomFields from "./alpine-components/render-custom-fields";
 Alpine.data("RenderCustomFields", RenderCustomFields);
 
@@ -7,6 +28,7 @@ Alpine.data("EditFieldSettings", EditFieldSettings);
 import RenderFieldValues from "./alpine-components/render-field-values";
 Alpine.data("RenderFieldValues", RenderFieldValues);
 
+// Field-input
 import FieldInputRepeater from "./alpine-components/field-input/repeater";
 Alpine.data("FieldInputRepeater", FieldInputRepeater);
 
@@ -16,6 +38,7 @@ Alpine.data("FieldInputImage", FieldInputImage);
 import FieldInputLink from "./alpine-components/field-input/link";
 Alpine.data("FieldInputLink", FieldInputLink);
 
+// render-repeater-fields
 import EditRepeaterItem from "./alpine-components/edit-repeater-item";
 Alpine.data("EditRepeaterItem", EditRepeaterItem);
 
