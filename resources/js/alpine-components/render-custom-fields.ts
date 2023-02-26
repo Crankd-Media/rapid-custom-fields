@@ -64,7 +64,6 @@ export default (initRoute, initFields, initFieldTypes) => {
             this.save();
         },
         save() {
-            console.log("save");
             axios
             .patch(this.route, {
                 custom_fields: this.fields,

@@ -1,12 +1,15 @@
 import Swal from "sweetalert2";
+
+import collect from "collect.js";
+
 window.Swal = Swal;
 
 window.SweetalertOptions = {
-    confirmButtonText: "Yes, delete it!",
-    confirmButtonColor: "#E33430",
-    cancelButtonColor: "#6c757d",
-    confirmButtonClass: "btn btn-danger",
-    cancelButtonClass: "btn btn-lighter",
+  confirmButtonText: "Yes, delete it!",
+  confirmButtonColor: "#E33430",
+  cancelButtonColor: "#6c757d",
+  confirmButtonClass: "btn btn-danger",
+  cancelButtonClass: "btn btn-lighter",
 };
 
 import Alpine from "alpinejs";
@@ -28,23 +31,30 @@ Alpine.data("FieldInputRepeater", FieldInputRepeater);
 import FieldInputImage from "./alpine-components/field-input/image";
 Alpine.data("FieldInputImage", FieldInputImage);
 
+import FieldInputLink from "./alpine-components/field-input/link";
+Alpine.data("FieldInputLink", FieldInputLink);
+
+// render-repeater-fields
+import EditRepeaterItem from "./alpine-components/edit-repeater-item";
+Alpine.data("EditRepeaterItem", EditRepeaterItem);
+
 Alpine.magic("clipboard", () => {
-    return (subject) => navigator.clipboard.writeText(subject);
+  return (subject) => navigator.clipboard.writeText(subject);
 });
 
 import slugify from "slugify";
 
 Alpine.directive(
-    "rapid-slug",
-    (el, { expression }, { evaluateLater, effect }) => {
-        let setInputValue = evaluateLater(expression);
-        effect(() => {
-            setInputValue((string) => {
-                el.value = slugify(string, {
-                    lower: true,
-                    replacement: "_",
-                });
-            });
+  "rapid-slug",
+  (el, { expression }, { evaluateLater, effect }) => {
+    let setInputValue = evaluateLater(expression);
+    effect(() => {
+      setInputValue((string) => {
+        el.value = slugify(string, {
+          lower: true,
+          replacement: "_",
         });
-    }
+      });
+    });
+  }
 );

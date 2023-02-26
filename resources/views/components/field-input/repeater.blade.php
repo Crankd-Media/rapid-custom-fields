@@ -7,15 +7,17 @@
 		<template x-for="(item, index) in repeater.values">
 			<li class="flex items-center justify-between gap-2 py-3">
 
+				<span x-log="item"></span>
+
 				{{-- Dispaly the item --}}
 				<div class="flex flex-1 items-center gap-2">
-					{{-- <template x-if="item.value.image.url">
+					<template x-if="item.value.image.url">
 						<div class="h-12 w-12 overflow-hidden rounded bg-gray-200">
 							<img :src="item.value.image.url"
 								alt=""
 								class="aspect-[4/4] w-full object-cover">
 						</div>
-					</template> --}}
+					</template>
 					<div>
 						<p class="max-w-[230px] truncate text-sm font-medium"
 							x-text="item.value.title"></p>

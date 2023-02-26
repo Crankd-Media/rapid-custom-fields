@@ -1,4 +1,5 @@
-<div class="py-6">
+<div x-data="FieldInputLink(field)"
+	class="py-6">
 	<div class="flex items-center justify-between gap-8">
 		<div>
 			<p class="text-xl font-bold"
@@ -18,6 +19,7 @@
 				class="pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span>
 		</button>
 	</div>
+
 	<div x-show="field.value.show"
 		class="mt-4">
 

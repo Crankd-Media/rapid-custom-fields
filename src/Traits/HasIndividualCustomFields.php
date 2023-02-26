@@ -15,27 +15,22 @@ trait HasIndividualCustomFields
     public function getFieldValues()
     {
         $fieldValues = [];
-
         $values = $this->custom_field_values;
+
         $fields = $this->custom_fields;
-
         foreach ($fields as $field) {
-            $fieldValues[$field->key] = isset($values[$field->key]) ? $values[$field->key] : null;
-            if (isset($values[$field->key])) {
-                $field->value = $values[$field->key];
-            } else {
-                $field->value = null;
 
-                if ($field->type == 'link') {
-                    $field->value = [
-                        'label' => $field->title,
-                        'type' => 'internal',
-                        'show' => false,
-                        'url' => null,
-                        'title' => null,
-                    ];
+            $field->value = null;
+
+            if (isset($values->{$field->key})) {
+                if ($field->type == 'repeater') {
+                    $field->values = $values->{$field->key}->values;
+                } else {
+                    $field->value = $values->{$field->key}->value;
                 }
             }
+
+
             $fieldValues[$field->key] = $field;
         }
 

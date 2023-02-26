@@ -1,4 +1,6 @@
-<div x-data="RenderFieldValues({{ json_encode($values) }}, {{ json_encode($values) }})">
+<div x-data="RenderFieldValues({{ json_encode($values) }}, {{ json_encode($values) }}, '{{ $route }}')">
+
+
 	<template x-for="field in fields"
 		:key="$id()">
 
@@ -33,7 +35,6 @@
 
 	{{-- Add Field --}}
 	<div class="item-center my-2 flex justify-end">
-
 		<div class="vflex items-center justify-between gap-1">
 
 			<div class="flex items-center gap-3">
@@ -44,7 +45,6 @@
 						Discard
 					</div>
 				</button>
-
 
 				<button class="rounded-lg bg-indigo-700 py-2 px-4 text-white hover:bg-indigo-900"
 					@click="save">
@@ -64,9 +64,21 @@
 				</button>
 			</div>
 		</div>
-
-
 	</div>
+
+	@php
+		$fieldTypes = config('rapid-custom-fields.field_types');
+		$exclude = ['repeater'];
+		$childFieldTypes = collect($fieldTypes)
+		    ->filter(function ($fieldType) use ($exclude) {
+		        return !in_array($fieldType['type'], $exclude);
+		    })
+		    ->toArray();
+	@endphp
+
+
+	<x-rapid-custom-fields::edit-repeater-item :fieldTypes="$childFieldTypes" />
+
 
 
 </div>

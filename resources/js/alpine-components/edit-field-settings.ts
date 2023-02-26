@@ -32,7 +32,6 @@ export default (initFieldTypes) => {
             } );
         },
         addField() {
-            console.log(this.field);
             this.field.fields.push({
                 title: "new",
                 key: "new",
