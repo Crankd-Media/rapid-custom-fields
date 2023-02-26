@@ -32,7 +32,7 @@ class RapidCustomFieldsProvider extends ServiceProvider
         $this->registerComponents(); // Register the components
 
         $this->publishes([
-            self::PATH_ASSETS => resource_path('crankd/rapid-custom-fields/js'), // Publish the assets
+            self::PATH_ASSETS => resource_path('js/crankd/rapid-custom-fields/js'), // Publish the assets
         ], 'rapid-custom-fields-publishes');
     }
 
