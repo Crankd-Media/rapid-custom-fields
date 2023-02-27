@@ -18,10 +18,8 @@ export default (initFieldTypes) => {
             }
             this.field = detail.repeater;
             
-
-        
             // if index is set, then we are editing an item
-            if (detail.index) {
+            if (detail.index !== undefined) {
                 this.index = detail.index;
                 this.values = this.field.values[this.index].value;
                 this.field.fields.forEach((field) => {
