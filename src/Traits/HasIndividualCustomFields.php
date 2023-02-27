@@ -15,9 +15,10 @@ trait HasIndividualCustomFields
     public function getFieldValues()
     {
         $fieldValues = [];
-        $values = $this->custom_field_values;
+        $fields = $this->{$this->rapid_custom_fields['fields']};
+        $values = $this->{$this->rapid_custom_fields['values']};
 
-        $fields = $this->custom_fields;
+
         foreach ($fields as $field) {
 
             $field->value = null;
