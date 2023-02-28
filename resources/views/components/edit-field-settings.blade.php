@@ -7,8 +7,7 @@
 
 	<div slot="header-actions"
 		class="flex items-center">
-		<sl-icon-button class="new-window"
-			name="box-arrow-up-right"></sl-icon-button>
+
 	</div>
 
 	<div class="flex h-full flex-col items-stretch">
