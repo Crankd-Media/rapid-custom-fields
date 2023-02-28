@@ -24,6 +24,8 @@ export default (initFields = null, initOldFields = null, initRoute = '') => ({
             console.log("object");
             console.log(this.fields);
         }
+
+        console.log(this.fields);
         
         axios
             .patch(this.route, {
@@ -31,6 +33,7 @@ export default (initFields = null, initOldFields = null, initRoute = '') => ({
             })
             .then((response) => {
                 console.log(response);
+                console.log(response.data.custom_field_values);
             })
             .catch((error) => {
                 // console.log(error);

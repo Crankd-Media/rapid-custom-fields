@@ -7,7 +7,7 @@ export default (intValue = null) => ({
         if (this.field.value.show === undefined) {
             this.field.value = {
                 label: this.field.title,
-                type: 'internal',
+                // type: 'internal',
                 show: false,
                 url: null,
                 title: null,
