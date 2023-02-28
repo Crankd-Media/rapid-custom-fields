@@ -4,9 +4,6 @@ setBasePath("/");
 import "@shoelace-style/shoelace/dist/components/alert/alert.js";
 import "@shoelace-style/shoelace/dist/components/button/button.js";
 import "@shoelace-style/shoelace/dist/components/icon/icon.js";
-
-import "@shoelace-style/shoelace/dist/components/icon-button/icon-button.js";
-
 import "@shoelace-style/shoelace/dist/components/dialog/dialog.js";
 // tooltip
 import "@shoelace-style/shoelace/dist/components/tooltip/tooltip.js";
