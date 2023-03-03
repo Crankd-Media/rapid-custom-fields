@@ -1,3 +1,36 @@
+@php
+	if (!isset($fieldTypes)) {
+	    $fieldTypes = [
+	        [
+	            'type' => 'text',
+	            'label' => 'Text',
+	            'icon' => 'document-text',
+	        ],
+	        [
+	            'type' => 'textarea',
+	            'label' => 'Textarea',
+	            'icon' => 'document-text',
+	        ],
+	        [
+	            'type' => 'link',
+	            'label' => 'Link',
+	            'icon' => 'link',
+	        ],
+	        [
+	            'type' => 'image',
+	            'label' => 'Image',
+	            'icon' => 'image',
+	        ],
+	        [
+	            'type' => 'checkbox',
+	            'label' => 'Checkbox',
+	            'icon' => 'checkbox',
+	        ],
+	    ];
+	}
+@endphp
+
+
 <sl-drawer x-data="EditRepeaterItem({{ json_encode($fieldTypes) }})"
 	@open-edit-repeater-item.window="setup($event.detail)"
 	:label="field.title"
@@ -45,6 +78,7 @@
 
 	<div slot="footer"
 		class="flex items-center justify-end gap-3">
+
 
 
 		<button class="rounded-lg bg-indigo-200 py-2 px-4 text-indigo-800 hover:bg-indigo-300"

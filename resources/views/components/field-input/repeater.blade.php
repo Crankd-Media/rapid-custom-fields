@@ -3,7 +3,8 @@
 	<p class="mb-4 font-medium"
 		x-text="field.title">List items</p>
 
-	<ul class="divide-y">
+	<ul class="divide-y"
+		x-log="repeater">
 		<template x-for="(item, index) in repeater.values">
 			<li class="flex items-center justify-between gap-2 py-3">
 
@@ -32,8 +33,6 @@
 
 				{{-- Actions --}}
 				<div class="flex items-center gap-2">
-
-
 					<button @click="editItem(index)"
 						class="rounded-md p-2.5 text-indigo-700 hover:bg-indigo-100"
 						data-ol-has-click-handler="">

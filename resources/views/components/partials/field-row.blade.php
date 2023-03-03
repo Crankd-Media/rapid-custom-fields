@@ -39,7 +39,7 @@
 				x-model.debounce="row.title" />
 		</div>
 		<!-- Key -->
-		<div class="flex grow grow items-center gap-1">
+		<div class="flex grow items-center gap-1">
 			{{-- Copy Key --}}
 			<sl-tooltip content="Copied to clipboard"
 				trigger="click">
@@ -68,7 +68,7 @@
 		</div>
 	</div>
 
-	<div class="flex w-[160px] items-center justify-end gap-0.5 rounded-md bg-white p-2">
+	<div class="flex w-[160px] items-center justify-end gap-0.5 rounded-md p-2">
 
 
 		{{-- Edit --}}

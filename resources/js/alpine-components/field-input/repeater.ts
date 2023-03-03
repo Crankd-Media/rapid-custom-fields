@@ -4,6 +4,9 @@ export default (intValue = null) => ({
     init() {
         console.log("Repeater int");
         console.log(this.repeater);
+        console.log(this.repeater);
+
+        
     },
     addValue(value) {
         console.log("addValue");
@@ -18,8 +21,6 @@ export default (intValue = null) => ({
         this.repeater.values[index].value = value;
     },
     addItem() {
-
-
         window.dispatchEvent(
             new CustomEvent("open-edit-repeater-item", {
                 detail: {

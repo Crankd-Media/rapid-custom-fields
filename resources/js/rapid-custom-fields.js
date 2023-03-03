@@ -1,19 +1,21 @@
 import { setBasePath } from "@shoelace-style/shoelace/dist/utilities/base-path.js";
 setBasePath("/");
 
-import "@shoelace-style/shoelace/dist/components/alert/alert.js";
-import "@shoelace-style/shoelace/dist/components/button/button.js";
-import "@shoelace-style/shoelace/dist/components/icon/icon.js";
-import "@shoelace-style/shoelace/dist/components/dialog/dialog.js";
-// tooltip
-import "@shoelace-style/shoelace/dist/components/tooltip/tooltip.js";
-// import all components
-// import "@shoelace-style/shoelace/dist/components/all.js";
+import "https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace/dist/components/alert/alert.js";
+import "https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace/dist/components/button/button.js";
+import "https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace/dist/components/icon/icon.js";
+import "https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace/dist/components/dialog/dialog.js";
 
-import "@shoelace-style/shoelace/dist/components/input/input.js";
-import "@shoelace-style/shoelace/dist/components/drawer/drawer.js";
+import "https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace/dist/components/tooltip/tooltip.js";
 
-import "@shoelace-style/shoelace/dist/components/card/card.js";
+import "https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace/dist/components/input/input.js";
+import "https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace/dist/components/drawer/drawer.js";
+import "https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace/dist/components/card/card.js";
+
+import "https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace/dist/components/icon-button/icon-button.js";
+import "https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace/dist/components/tab-group/tab-group.js";
+import "https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace/dist/components/tab-panel/tab-panel.js";
+import "https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace/dist/components/tab/tab.js";
 
 import axios from "axios";
 
