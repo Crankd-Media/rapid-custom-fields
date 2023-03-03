@@ -1,3 +1,6 @@
+
+import Sortable from 'sortablejs';
+
 export default (initFieldTypes) => {
     return {
         field: {title : 'Settings',},

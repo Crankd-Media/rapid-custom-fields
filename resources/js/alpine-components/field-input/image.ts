@@ -35,23 +35,18 @@ export default (intField) => ({
         );
     },
     openFileManager() {
-        // open browser file manager then set image to file uploaded
-        const fileInput = document.createElement('input');
-        fileInput.type = 'file';
-      
-        fileInput.onchange = () => {
-          const file = fileInput.files[0];
-          const reader = new FileReader();
-      
-          reader.onload = () => {
-            console.log(reader.result);
-          };
-      
-          if (file) {
-            reader.readAsDataURL(file);
-          }
-        };
-        fileInput.click();
+        console.log('openFileManager');
+        // // open browser file manager then set image to file uploaded
+        // const fileInput = document.createElement('input');
+        // fileInput.type = 'file';
+        // fileInput.onchange = () => {
+        //   const file = fileInput.files[0];
+        //   const reader = new FileReader();
+        //   if (file) {
+        //     reader.readAsDataURL(file);
+        //   }
+        // };
+        // fileInput.click();
     },
     removeImage() {
         this.image = [];

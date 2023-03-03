@@ -1,6 +1,5 @@
 <div x-data="RenderFieldValues({{ json_encode($values) }}, {{ json_encode($values) }}, '{{ $route }}')">
 
-
 	<template x-for="field in fields"
 		:key="$id()">
 
@@ -66,41 +65,6 @@
 		</div>
 	</div>
 
-	@php
-		$fieldTypes = config('rapid-custom-fields.field_types');
-		$exclude = ['repeater'];
-		$childFieldTypes = collect($fieldTypes)
-		    ->filter(function ($fieldType) use ($exclude) {
-		        return !in_array($fieldType['type'], $exclude);
-		    })
-		    ->toArray();
-	@endphp
-
-
-	<x-rapid-custom-fields::edit-repeater-item :fieldTypes="$childFieldTypes" />
-
-
+	<x-rapid-custom-fields::edit-repeater-item />
 
 </div>
-
-<style>
-	input[type=text],
-	input[type=email],
-	input[type=password],
-	input[type=tel],
-	input[type=url],
-	textarea {
-		display: block;
-		width: 100%;
-		-webkit-appearance: none;
-		-moz-appearance: none;
-		appearance: none;
-		border-radius: 0.375rem !important;
-		border-width: 1px !important;
-		--tw-border-opacity: 1 !important;
-		border-color: rgba(209, 213, 219, var(--tw-border-opacity)) !important;
-		padding: 0.625rem 0.75rem !important;
-		font-size: 16px !important;
-		line-height: 16px !important;
-	}
-</style>

@@ -14,59 +14,67 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 trait HasIndividualCustomFields
 {
 
+
+    public function getRapidCustomFields($key = null)
+    {
+
+        if (!empty($key) && isset($this->rapid_custom_fields[$key])) {
+            $columnName = $this->rapid_custom_fields[$key];
+            return $this->{$columnName};
+        }
+
+        return $this->rapid_custom_fields;
+    }
+
+
     public function getFieldValues()
     {
-        $fieldValues = [];
+        $fields = $this->getRapidCustomFields('fields');
+        $values = $this->getRapidCustomFields('values');
 
-        $fields = $this->{$this->rapid_custom_fields['fields']};
-        $values = $this->{$this->rapid_custom_fields['values']};
-
-        if (count($fields)) {
-            foreach ($fields as $field) {
-
-                $field->value = null;
-
-                if (isset($values->{$field->key})) {
-                    if ($field->type == 'repeater') {
-                        $field->values = $values->{$field->key}->values;
-                    } else {
-                        $field->value = $values->{$field->key}->value;
-                    }
-                }
-
-
-                $fieldValues[$field->key] = $field;
-            }
-        }
-
-        return $fieldValues;
+        return $this->formatFieldValue($fields, $values);
     }
-    public function getFieldValuesFromSettings($section = [])
+
+
+
+    public function getFieldValuesFromPivotModel($model, $pivot = "section_settings_id")
     {
 
+        $fields = $this->getRapidCustomFields('fields');
+
         // if is not object return empty array
-        if (!is_object($section)) {
+        if (!is_object($this) || empty($this->fields)) {
             return [];
         }
 
+        $modelValue =  $model::find($this->pivot->$pivot);
+        $values = $modelValue->getRapidCustomFields('values');
+
+
+        return $this->formatFieldValue($fields, $values);
+    }
+
+
+    public function formatFieldValue($fields, $values)
+    {
         $fieldValues = [];
-        $section_fields =  $section->fields;
-
-        if (empty($section_fields)) {
-            return [];
+        if (empty($fields)) {
+            return $fieldValues;
         }
 
-        $sectionSetting = SectionSetting::find($section->pivot->section_settings_id);
-
-        $values = $sectionSetting->settings;
-
-
-        foreach ($section_fields as $key => $field) {
+        foreach ($fields as $key => $field) {
             $field->value = null;
 
-            if (isset($sectionSetting->settings->{$field->key})) {
-                $section_value = $sectionSetting->settings->{$field->key};
-                $field->value = $section_value;
+            if (isset($values->{$field->key})) {
+                $field->value = $values->{$field->key};
+
+                if (isset($values->{$field->key}->value)) {
+                    $field->value = $values->{$field->key}->value;
+                }
+
+                if ($field->type == 'repeater' && isset($values->{$field->key}->values)) {
+                    $field->values = $values->{$field->key}->values;
+                }
             }
 
             if ($field->type == 'link' && empty($field->value)) {
@@ -79,15 +87,6 @@ trait HasIndividualCustomFields
                     'title' => ''
                 ];
             }
-
-
-            if (isset($values->{$field->key})) {
-                if ($field->type == 'repeater') {
-                    $field->values = $values->{$field->key}->values;
-                }
-            }
-
-
 
             $fieldValues[$field->key] = $field;
         }

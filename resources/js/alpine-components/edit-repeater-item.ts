@@ -1,9 +1,8 @@
 import collect from "collect.js";
 
-export default (initFieldTypes) => {
+export default () => {
     return {
         field: {title : 'Add Item',},
-        fieldTypes:  initFieldTypes,
         detail: [],
         index: 0,
         values: {},
@@ -11,8 +10,7 @@ export default (initFieldTypes) => {
 
         },
         setup(detail) {
-            console.log(detail);
-            
+
             if (typeof detail.callback === "function") {
                 this.detail = detail;
             }
@@ -30,30 +28,15 @@ export default (initFieldTypes) => {
                     field.value = '';
                 });
             }
-
-
             this.$refs.drawer.show();
-
 
         },
         updateRepeaterValue() {
-
-            console.log(this.field.fields);
-
-            // create array of values key bu each field key 
-            // and pass it to the callback
-            // let fieldValues = collect(this.field.fields).map((field) => {
-            //     return field.value;
-            // });
 
             let fieldValues = collect(this.field.fields).keyBy(item => item.key).map((field) => {
                 return field.value;
             });
 
-
-
-            console.log(fieldValues);
-        
             this.detail.callback(fieldValues.items, this.index);
             this.detail = [];
             this.field = {title : 'Add Item',};

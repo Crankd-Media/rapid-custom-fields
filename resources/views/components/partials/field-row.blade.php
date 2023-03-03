@@ -1,4 +1,6 @@
 <li class="p-y-3 line-item flex items-center">
+
+	{{-- Field Order --}}
 	<div class="w-8">
 		<button class="drag-icon rounded-md p-2.5 text-indigo-400 hover:bg-indigo-100"
 			data-ol-has-click-handler="">
@@ -15,8 +17,11 @@
 			</svg>
 		</button>
 	</div>
+
+	{{-- Field Type --}}
 	<div class="w-[160px] flex-none pr-2">
 		<div class="flex items-center">
+
 
 			<select class="w-full rounded-lg border border-gray-200 p-2 text-sm"
 				x-model="row.type">
@@ -31,6 +36,7 @@
 		</div>
 	</div>
 
+	{{-- Field Title / Key --}}
 	<div class="flex grow items-center gap-2">
 		<!-- Title -->
 		<div class="grow">
@@ -68,8 +74,8 @@
 		</div>
 	</div>
 
+	{{-- Actions --}}
 	<div class="flex w-[160px] items-center justify-end gap-0.5 rounded-md p-2">
-
 
 		{{-- Edit --}}
 		<button @click.prevent="$dispatch('edit-field-settings', row )"

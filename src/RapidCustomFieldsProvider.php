@@ -67,14 +67,8 @@ class RapidCustomFieldsProvider extends ServiceProvider
     private function registerComponents(): self
     {
 
-        // Navigation
-        Blade::component('manage-fields', 'manage-fields');
+        // Blade::component('manage-fields', 'manage-fields');
 
-        // Blade::component('navigation.stacked', Stacked::class);
-        // Blade::component('navigation.sidebar', Sidebar::class);
-
-        // Blade::componentNamespace('Crankd\\LaravelPages\\View\\Components\\Navigation', 'stacked');
-        // Blade::componentNamespace('Crankd\\LaravelPages\\View\\Components\\Navigation', 'sidebar');
         return $this;
     }
 }

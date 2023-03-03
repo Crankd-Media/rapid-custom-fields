@@ -33,4 +33,8 @@ return [
             'icon' => 'checkbox',
         ],
     ],
+    // remove repeater from repeater child fild types
+    'repeater_exclude_fields' => [
+        'repeater',
+    ],
 ];

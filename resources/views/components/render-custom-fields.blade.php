@@ -1,28 +1,31 @@
 @php
 	$fieldTypes = config('rapid-custom-fields.field_types');
-	$exclude = ['repeater'];
-	$childFieldTypes = collect($fieldTypes)
-	    ->filter(function ($fieldType) use ($exclude) {
-	        return !in_array($fieldType['type'], $exclude);
-	    })
-	    ->toArray();
+	
 @endphp
 
-
 <div x-data="RenderCustomFields({{ json_encode($route) }}, {{ json_encode($fields) }}, {{ json_encode($fieldTypes) }})">
+
+	{{-- Row Header --}}
 	<x-rapid-custom-fields::partials.field-row-header />
+
+	{{-- Rows --}}
 	<ul class="flex flex-col"
 		x-ref="sortableFields">
-		{{-- List Fields --}}
-		<template x-for="(row, index) in fields"
-			:key="$id('fields')">
-			<x-rapid-custom-fields::partials.field-row />
+		<template x-if="fields.length">
+
+			{{-- List Fields --}}
+			<template x-for="(row, index) in fields"
+				:key="$id('fields')">
+				<x-rapid-custom-fields::partials.field-row />
+			</template>
 		</template>
+
 	</ul>
+
+	{{-- Add Field Button --}}
 	<x-rapid-custom-fields::partials.add-field-button />
+
 </div>
 
 
-<x-rapid-custom-fields::edit-field-settings :fieldTypes="$childFieldTypes" />
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.13.0/Sortable.min.js"></script>
+<x-rapid-custom-fields::edit-field-settings />

@@ -1,3 +1,5 @@
+import Sortable from 'sortablejs';
+
 export default (initRoute, initFields, initFieldTypes) => {
     return {
         route: initRoute,
@@ -69,7 +71,6 @@ export default (initRoute, initFields, initFieldTypes) => {
                 custom_fields: this.fields,
             })
             .then((response) => {
-                console.log(response);
             })
             .catch((error) => {
                 // console.log(error);
