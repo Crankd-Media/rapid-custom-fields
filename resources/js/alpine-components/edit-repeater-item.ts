@@ -15,6 +15,13 @@ export default () => {
                 this.detail = detail;
             }
             this.field = detail.repeater;
+            console.log(this.field);
+
+            // if this.field.fields is empty then display a message
+            if (this.field.fields.length === 0) {
+                alert('No fields found for this repeater');
+                return;
+            }
             
             // if index is set, then we are editing an item
             if (detail.index !== undefined) {
