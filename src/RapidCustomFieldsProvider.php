@@ -27,17 +27,6 @@ class RapidCustomFieldsProvider extends ServiceProvider
         $this->loadViewsFrom(self::RESOURCES_PATH . 'views', 'rapid-custom-fields'); // Load the views
 
         $this->registerComponents(); // Register the components
-
-
-        // Publish js
-        $this->publishes([
-            self::RESOURCES_PATH . 'js' => resource_path('crankd/rapid/js'), // Publish the assets
-        ], 'rapid-custom-fields-js');
-
-        // Publish css
-        $this->publishes([
-            self::RESOURCES_PATH . 'css' => resource_path('crankd/rapid/css'), // Publish the assets
-        ], 'rapid-custom-fields-css');
     }
 
     /**
@@ -60,6 +49,16 @@ class RapidCustomFieldsProvider extends ServiceProvider
         $this->publishes([
             self::CONFIG_FILE => config_path('rapid-custom-fields.php'),
         ], 'rapid-custom-fields-config');
+
+        // Publish js
+        $this->publishes([
+            self::RESOURCES_PATH . 'js' => resource_path('crankd/rapid/js'), // Publish the assets
+        ], 'rapid-custom-fields-js');
+
+        // Publish css
+        $this->publishes([
+            self::RESOURCES_PATH . 'css' => resource_path('crankd/rapid/css'), // Publish the assets
+        ], 'rapid-custom-fields-css');
     }
 
 

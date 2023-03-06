@@ -4,6 +4,9 @@
 
 composer require crankd/rapid-custom-fields
 
+
+
+
 php artisan vendor:publish --tag=rapid-custom-fields-publishes
 
 php artisan vendor:publish --provider="Crankd\RapidCustomFields\RapidCustomFieldsProvider"
