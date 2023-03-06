@@ -13,10 +13,7 @@ class RapidCustomFieldsProvider extends ServiceProvider
 
     private const CONFIG_FILE = __DIR__ . '/../config/rapid-custom-fields.php';
 
-    private const PATH_VIEWS = __DIR__ . '/../resources/views';
-
-    private const PATH_ASSETS = __DIR__ . '/../resources/js';
-
+    private const RESOURCES_PATH = __DIR__ . '/../resources/';
 
     /**
      * Bootstrap services.
@@ -27,15 +24,20 @@ class RapidCustomFieldsProvider extends ServiceProvider
     {
         $this->offerPublishing(); // Publish the config file
 
-        $this->loadViewsFrom(self::PATH_VIEWS, 'rapid-custom-fields'); // Load the views
+        $this->loadViewsFrom(self::RESOURCES_PATH . 'views', 'rapid-custom-fields'); // Load the views
 
         $this->registerComponents(); // Register the components
 
 
-        // resource_path js
+        // Publish js
         $this->publishes([
-            self::PATH_ASSETS => resource_path('js/crankd/rapid-custom-fields/js'), // Publish the assets
-        ], 'rapid-custom-fields-publishes');
+            self::RESOURCES_PATH . 'js' => resource_path('crankd/rapid/js'), // Publish the assets
+        ], 'rapid-custom-fields-js');
+
+        // Publish css
+        $this->publishes([
+            self::RESOURCES_PATH . 'css' => resource_path('crankd/rapid/css'), // Publish the assets
+        ], 'rapid-custom-fields-css');
     }
 
     /**
